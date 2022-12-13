@@ -1,0 +1,20 @@
+<h2>{{team.name}}</h2>
+<div class='row'>
+  <div class='tag-chart col-md-6' donut-chart chart-data='tagData'></div>
+  <div class='team-score-chart col-md-6' score-chart chart-data='scoreHistory'></div>
+</div>
+<div class='row'>
+  <div class='col-md-8 col-md-offset-2 team-solved'>
+    <h4>Solved Challenges ({{team.score}} Points)</h4>
+    <p ng-hide='team.solved_challenges'>This team has not solved any challenges.</p>
+    <table ng-show='team.solved_challenges'
+      class='team-challenges table table-striped table-responsive text-light'>
+      <tr><th>Name</th><th>Points</th><th>Solved</th></tr>
+      <tr ng-repeat='chall in team.solved_challenges'>
+        <td ng-bind='chall.name'></td>
+        <td ng-bind='chall.points'></td>
+        <td ng-bind='chall.solved|date:"yy/MM/dd HH:mm"'></td>
+      </tr>
+    </table>
+  </div>
+</div>
